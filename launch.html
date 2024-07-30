@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euphoria 2024 -Brace for imapact !</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #342748;
+            color: #ffffff;
+            overflow: hidden;
+        }
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            opacity: 0.5;
+            z-index: 1;
+            transition: opacity 2s;
+        }
+        .bg-image {
+            background-size: cover;
+            background-position: center;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(52, 39, 72, 0.7);
+            z-index: 2;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+        }
+        .door {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            z-index: 4;
+        }
+        .door-half {
+            width: 50%;
+            height: 100%;
+            background-color: #000000;
+            position: relative;
+            transition: transform 2s;
+        }
+        .door-left {
+            transform-origin: left;
+        }
+        .door-right {
+            transform-origin: right;
+        }
+        .door-design {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .circuit-line {
+            width: 80%;
+            height: 2px;
+            background-color: #9F4783;
+            position: relative;
+            box-shadow: 0 0 10px #9F4783, 0 0 20px #9F4783, 0 0 30px #9F4783;
+        }
+        .circuit-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #9F4783;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 10px #9F4783, 0 0 20px #9F4783, 0 0 30px #9F4783;
+        }
+        .content {
+            text-align: center;
+            z-index: 5;
+        }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow: 0 0 10px #9F4783, 0 0 20px #9F4783, 0 0 30px #9F4783;
+        }
+        .enter-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #9F4783;
+            color: #ffffff;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 0 10px #9F4783, 0 0 20px #9F4783, 0 0 30px #9F4783;
+        }
+        .enter-button:hover {
+            background-color: #ffffff;
+            color: #342748;
+            transform: scale(1.05);
+        }
+        .college-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: auto;
+            z-index: 6;
+        }
+        .event-icons {
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            z-index: 6;
+        }
+        .event-icon {
+            font-size: 2.5em;
+            margin: 0 10px;
+            opacity: 0.7;
+            transition: all 0.3s;
+            color: #9F4783;
+           
+        }
+        .event-icon:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .fest-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.2em;
+            text-align: right;
+            z-index: 6;
+        }
+        .countdown {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #9F4783;
+            margin-top: 10px;
+            text-shadow: 0 0 10px #9F4783, 0 0 20px #9F4783, 0 0 30px #9F4783;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid">
+        <div class="bg-image" style="background-image: url('/gaming.jpg');"></div>
+        <div class="bg-image" style="background-image: url('/gaming.jpg);"></div>
+        <div class="bg-image" style="background-image: url('/gaming.jpg');"></div>
+        <div class="bg-image" style="background-image: url('/gaming.jpg');"></div>
+    </div>
+    <div class="overlay"></div>
+    <div class="container">
+        <img src="clglogo.png" alt="College Logo" class="college-logo">
+        
+        <div class="door">
+            <div class="door-half door-left relative">
+                <div class="absolute w-full h-full top-0 left-0 grid grid-cols-2 brightness-50">
+                    <img class="h-full object-cover" src="gaming.jpg" alt="">
+                    <img class="h-full object-cover" src="hunt.webp" alt="">
+                </div>
+                <div class="door-design">
+                    <div class="circuit-line"><div class="circuit-dot" style="left: 20%;"></div></div>
+                    <div class="circuit-line"><div class="circuit-dot" style="left: 60%;"></div></div>
+                    <div class="circuit-line"><div class="circuit-dot" style="left: 40%;"></div></div>
+                </div>
+            </div>
+            <div class="door-half door-right relative">
+                <div class="absolute w-full h-full top-0 left-0 grid grid-cols-2 brightness-50">
+                    <img class="h-full object-cover" src="web.avif" alt="">
+                    <img class="h-full object-cover" src="code.jpg" alt="">
+                </div>
+                <div class="door-design">
+                    <div class="circuit-line"><div class="circuit-dot" style="right: 20%;"></div></div>
+                    <div class="circuit-line"><div class="circuit-dot" style="right: 60%;"></div></div>
+                    <div class="circuit-line"><div class="circuit-dot" style="right: 40%;"></div></div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h1 class="text-[10rem]">EUPHORIA'24</h1>
+            <button class="enter-button">Brace for Impact !</button>
+        </div>
+        <div class="event-icons">
+            <i class="event-icon fas fa-laptop-code"></i>
+            <i class="event-icon fas fa-robot"></i>
+            <i class="event-icon fas fa-rocket"></i>
+            <i class="event-icon fas fa-brain"></i>
+            <i class="event-icon fas fa-network-wired"></i>
+        </div>
+        
+           
+       
+    </div>
+
+    <script>
+        const doorLeft = document.querySelector('.door-left');
+        const doorRight = document.querySelector('.door-right');
+        const enterButton = document.querySelector('.enter-button');
+        const bgGrid = document.querySelector('.bg-grid');
+
+        enterButton.addEventListener('click', () => {
+            doorLeft.style.transform = 'rotateY(-90deg)';
+            doorRight.style.transform = 'rotateY(90deg)';
+            bgGrid.style.opacity = '0';
+            setTimeout(() => {
+                window.location.href = 'http://139.59.60.171/';
+            }, 2000);
+        });
+
+        // Add pulsing effect to circuit dots
+        const circuitDots = document.querySelectorAll('.circuit-dot');
+        circuitDots.forEach(dot => {
+            setInterval(() => {
+                dot.style.boxShadow = '0 0 10px #9F4783, 0 0 20px #9F4783, 0 0 30px #9F4783';
+                setTimeout(() => {
+                    dot.style.boxShadow = '0 0 10px #9F4783, 0 0 20px #9F4783';
+                }, 500);
+            }, 2000);
+        });
+
+        // Countdown timer
+        const countdownElement = document.getElementById('countdown');
+        const festDate = new Date('2024-03-15T00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = festDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m`;
+
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                countdownElement.innerHTML = "TechNova is Live!";
+            }
+        }
+
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
